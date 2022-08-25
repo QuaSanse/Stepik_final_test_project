@@ -24,6 +24,7 @@ def get_chrome_options(request) -> chrome_options:
     user_language = request.config.getoption("language")  # язык пользователя
     options.add_experimental_option(
         'prefs', {'intl.accept_languages': user_language})
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
     return options
 
 
@@ -57,7 +58,7 @@ def get_webdriver(request, get_chrome_options, get_firefox_options) -> webdriver
         raise pytest.UsageError("--browser_name should be chrome or firefox")
 
 
-@pytest.fixture(scope='function') 
+@pytest.fixture(scope='function')
 def browser(request, get_webdriver):
     driver = get_webdriver
     if request.cls is not None:
