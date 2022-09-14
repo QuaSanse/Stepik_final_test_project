@@ -5,8 +5,12 @@ class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
 
-# class MainPageLocators:
-#     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    BUTTON_VIEW_TO_CART = (By.CSS_SELECTOR, ".btn-group  a.btn")
+
+
+class BasketPageLocators:
+    EMPTY_CART_MESSAGE = (By.XPATH, "//*[@id='content_inner']/p")
+    FORM_ITEMS_IN_THE_CART = (By.CSS_SELECTOR, "#basket_formset")
 
 
 class LoginPageLocators:

@@ -72,3 +72,8 @@ class BasePage:
         """ проверка ссылки для авторизации """
         assert self.is_element_present(
             *BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
+    def go_to_cart(self):
+        """ Переходит в корзину по кнопке в шапке сайта """
+        self.browser.find_element(
+            *BasePageLocators.BUTTON_VIEW_TO_CART).click()
