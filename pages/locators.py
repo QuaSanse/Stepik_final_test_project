@@ -6,16 +6,22 @@ class BasePageLocators:
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
 
     BUTTON_VIEW_TO_CART = (By.CSS_SELECTOR, ".btn-group  a.btn")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
 class BasketPageLocators:
     EMPTY_CART_MESSAGE = (By.XPATH, "//*[@id='content_inner']/p")
     FORM_ITEMS_IN_THE_CART = (By.CSS_SELECTOR, "#basket_formset")
-
+    
 
 class LoginPageLocators:
     FORM_LOGIN = (By.CSS_SELECTOR, "form#login_form")
     FORM_REGISTER = (By.CSS_SELECTOR, "form#register_form")
+
+    INPUT_EMAIL = (By.CSS_SELECTOR, "input#id_registration-email")
+    INPUT_PASSWORD1 = (By.CSS_SELECTOR, "input#id_registration-password1")
+    INPUT_PASSWORD2 = (By.CSS_SELECTOR, "input#id_registration-password2")
+    BUTTON_REGISTER = (By.CSS_SELECTOR, "#register_form button")
 
 
 class ProductPageLocators:

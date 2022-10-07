@@ -6,7 +6,6 @@ class ProductPage(BasePage):
     'Страница товара'
 
     def should_be_product_page(self):
-        self.should_be_product_url()
         self.go_add_product_to_basket()
         self.solve_quiz_and_get_code()
         self.check_exists_messege_added_to_cart()
@@ -14,7 +13,7 @@ class ProductPage(BasePage):
         self.check_price_message()
 
     def should_be_product_url(self):
-        """ проверка на верный url адрес """
+        """ проверка на верный url адрес для промо"""
         assert '?promo=' in self.browser.current_url, "Current url does not contain product page"
 
     def go_add_product_to_basket(self):

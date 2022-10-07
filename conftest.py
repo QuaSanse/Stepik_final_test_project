@@ -1,7 +1,13 @@
+import email
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as chrome_options
 from selenium.webdriver.firefox.options import Options as firefox_options
+
+from .pages.main_page import MainPage
+from mimesis import Person
+from mimesis.locales import Locale
+from .pages.login_page import LoginPage
 
 
 def pytest_addoption(parser):
@@ -68,3 +74,22 @@ def browser(request, get_webdriver):
     driver.close()
     print("\nquit browser...")
     driver.quit()
+
+
+@pytest.fixture(scope='function')
+def setup(browser):
+    # открыть страницу регистрации
+    link = "https://selenium1py.pythonanywhere.com/accounts/login/"
+    login_page = LoginPage(browser, link)
+    login_page.open()
+    # генерируем email и password
+    person = Person(Locale.RU)
+    email = person.email()
+    password = person.password(10)
+
+    # зарегистрировать нового пользователя
+    login_page.register_new_user(email, password)
+
+    # проверить, что пользователь залогинен
+    login_page.should_be_authorized_user()
+    yield
