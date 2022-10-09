@@ -30,7 +30,6 @@ class ProductPageLocators:
         By.CSS_SELECTOR, "#messages > div:nth-child(1) > div")
     MESSEGE_BASKET_TOTAL = (
         By.XPATH, "//*[@id='messages']/div[3]/div/p[1]/strong")
-    # MESSEGE_BASKET_TOTAL = (By.CSS_SELECTOR, "#messages > div.alert-info > div > p:nth-child(1) > strong")
 
     PRODUCT_NAME_ON_PAGE = (By.CSS_SELECTOR, "div.col-sm-6 h1")
     PRODUCT_NAME_IN_MESSEGE = (

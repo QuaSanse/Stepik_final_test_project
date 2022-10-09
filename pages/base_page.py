@@ -76,7 +76,7 @@ class BasePage:
             *BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
     def go_to_cart(self):
-        """ Переходит в корзину по кнопке в шапке сайта """
+        """ метод переходита в корзину по кнопке из шапки сайта """
         self.browser.find_element(
             *BasePageLocators.BUTTON_VIEW_TO_CART).click()
 

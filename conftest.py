@@ -1,10 +1,8 @@
-import email
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as chrome_options
 from selenium.webdriver.firefox.options import Options as firefox_options
 
-from .pages.main_page import MainPage
 from mimesis import Person
 from mimesis.locales import Locale
 from .pages.login_page import LoginPage
@@ -37,10 +35,6 @@ def get_chrome_options(request) -> chrome_options:
 @pytest.fixture
 def get_firefox_options(request):
     options = firefox_options()
-    # options.add_argument('firefox')
-    # options.add_argument('--start-maximized')
-    # options.add_argument('--window-size=1200,1080')
-    # options = webdriver.FirefoxProfile()
     user_language = request.config.getoption("language")  # язык пользователя
     options.set_preference('prefs', {'intl.accept_languages': user_language})
     return options

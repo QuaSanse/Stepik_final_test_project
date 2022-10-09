@@ -35,7 +35,7 @@ class ProductPage(BasePage):
             *ProductPageLocators.PRODUCT_NAME_ON_PAGE)
         product_name_in_messege = self.browser.find_element(
             *ProductPageLocators.PRODUCT_NAME_IN_MESSEGE)
-
+        # выводим сообщение о добавлении товара
         print(
             f'Товар "{product_name_in_messege.text}" добавлен в корзину')
         assert product_name_on_page.text == product_name_in_messege.text, f"Product name {product_name_on_page.text} does not match {product_name_in_messege.text}"
@@ -49,6 +49,7 @@ class ProductPage(BasePage):
 
         assert price_on_page.text == price_on_messege.text, "Prices do not match"
 
+        # выводим сообщение о стоимости корзины
         print(f'Стоимость корзины {price_on_messege.text}')
 
     def should_not_be_success_message(self):
